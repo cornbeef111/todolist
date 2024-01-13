@@ -1,9 +1,9 @@
 const todoList = [{
     name: 'wash cloth',
-    dueDate: '1-12-2024',
+    dueDate: '2024-1-12',
 },{
     name:'cook food',
-    dueDate: '1-12-2024',
+    dueDate: '2024-1-12',
 }];
 
 renderTodoList();
@@ -17,12 +17,13 @@ function renderTodoList(){
         let listItemObject = todoList[i];
         let name = listItemObject.name;
         let dueDate = listItemObject.dueDate;
-        let html = `<div>${name}</div>
-         <div>${dueDate}</div>
-            <button onclick="
-                todoList.splice(${i}, 1);
-                renderTodoList();
-            ">Delete</button>`;
+        let html = `
+        <div>${name}</div>
+        <div>${dueDate}</div>
+        <button onclick="
+            todoList.splice(${i}, 1);
+            renderTodoList();
+        " class="delete-style">Delete</button>`;
         todoListHtml += html;
     }
    
