@@ -13,7 +13,22 @@ function renderTodoList(){
 
     let todoListHtml = '';
 
-    for (let i = 0; i < todoList.length; i++){
+//    trying to use foreach to loop through the array
+todoList.forEach(function (listItemObject,index){
+    let name = listItemObject.name;
+    let dueDate = listItemObject.dueDate;
+    let html = `
+    <div>${name}</div>
+    <div>${dueDate}</div>
+    <button onclick="
+        todoList.splice(${index}, 1);
+        renderTodoList();
+    " class="delete-style">Delete</button>`;
+    todoListHtml += html; 
+});
+
+
+   /* for (let i = 0; i < todoList.length; i++){
         let listItemObject = todoList[i];
         let name = listItemObject.name;
         let dueDate = listItemObject.dueDate;
@@ -24,8 +39,8 @@ function renderTodoList(){
             todoList.splice(${i}, 1);
             renderTodoList();
         " class="delete-style">Delete</button>`;
-        todoListHtml += html;
-    }
+        todoListHtml += html; 
+    }*/
    
 
     document.querySelector('.showList').innerHTML = todoListHtml;
